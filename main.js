@@ -2,6 +2,7 @@ var rows = 20;
 var columns = 20;
 var circles = [];
 var color = 'yellow';
+var message = ' World!';
 circles.length = rows*columns;
 for(var i = 0; i < circles.length; i++){
     circles[i] = document.createElement('div');
@@ -19,8 +20,12 @@ document.getElementsByClassName('reset')[0].addEventListener('click', function()
 
     }
     color='yellow';
-})
-
+});
 document.getElementsByClassName('black')[0].addEventListener('click',function(){
     color = 'black';
-})
+});
+window.setInterval(function(){
+    var currentMessage = document.getElementsByClassName('message')[0].innerHTML;
+    currentMessage = currentMessage+message;
+    document.getElementsByClassName('message')[0].innerHTML = currentMessage;
+}, 1000);
